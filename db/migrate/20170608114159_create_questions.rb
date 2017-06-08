@@ -1,6 +1,6 @@
 class CreateQuestions < ActiveRecord::Migration
   def change
-    table_create :questions do |t|
+    create_table :questions do |t|
       t.string :question, null: false
       t.integer :user_id, foreign_key: true, null:false
       t.integer :commentable_id
@@ -8,11 +8,8 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :votable_id
       t.string :votable_type
 
-      t.timestamps
+      t.timestamps(null: false)
     end
-
-    add_index :comments [:commentable_id, :commentable_type]
-    add_index :votes [:votable_id, :votable_type]
 
   end
 end
