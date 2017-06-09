@@ -1,0 +1,11 @@
+<div class="row">
+<main class="col s12 m4">
+  <ul class="left">
+    <% @questions.each do |question| %>
+      <a class="light" href="/questions/<%= question.id%>"><%= question.question%></a>
+      <p class = "detail"><%= question.created_at.ctime %></p>
+      <br>
+    <% end %>
+  </ul>
+</main>
+</div>

@@ -17,6 +17,7 @@ gem 'bcrypt'
 gem 'pry'
 gem 'pry-byebug'
 gem 'faker'
+gem 'materialize-sass'
 
 group :test do
   gem 'shoulda-matchers'

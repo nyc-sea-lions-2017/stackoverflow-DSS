@@ -6,11 +6,14 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/css/normalize.css">
+ <!--  <link rel="stylesheet" href="/css/normalize.css"> -->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
   <!--
     application.css is where you put your styles
   -->
-  <link rel="stylesheet" href="/css/application.css">
+  <!-- <link rel="stylesheet" href="/css/application.css"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
@@ -18,16 +21,27 @@
   <title></title>
 </head>
 <body>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.js"></script>
   <nav>
       <a href="/">Home</a>
       <% if logged_in? %>
-      <a href="/users/<%=current_user.id%>"><%= current_user.username %></a>
-      <a href="/logout">Logout</a>
+        <a href="/users/<%=current_user.id%>"><%= current_user.username %></a>
+        <a href="/logout">Logout</a>
       <% else %>
-      <a href= "/login"> Log In </a>
-      <a href= "/users/new">Register</a>
+        <a href= "/login"> Log In </a>
+        <a href= "/users/new">Register</a>
       <% end %>
   </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <h1 class="header center teal-text text-lighten-2">Stack UnderFlow</h1>
+    <h5 id="index-banner" class="parallax-container">Hopefully your second choice to find answers to any programming questions you have...</h5>
+  </div>
+  <br>
+
+
+
   <%= yield %>
 </body>
 </html>
