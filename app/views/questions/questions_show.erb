@@ -1,0 +1,28 @@
+<div>
+<main>
+<h2><%= @question.question%> </h2>
+  <body>
+    <h3>Question:</h3>
+    <b><%= @question.question_detail%></b>
+      <ul>
+        <% unless @question.comments.empty? %>
+            <% @question.comments.each do |comment| %>
+              <li><%= comment.comment %></li>
+              <br>
+            <% end %>
+          <% end %>
+      </ul>
+      <br>
+      <h3>Answers:</h3>
+        <ul>
+          <% unless @question.answers.empty? %>
+            <% @question.answers.each do |answer| %>
+              <li><%= answer.answer %></li>
+              <br>
+            <% end %>
+          <% end %>
+        </ul>
+  </body>
+  <br>
+</main>
+</div>

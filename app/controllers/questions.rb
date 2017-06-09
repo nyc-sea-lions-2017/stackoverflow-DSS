@@ -1,5 +1,5 @@
 get '/questions' do
-  @questions = Questions.all
+  @questions = Question.all
 
   erb :'/questions/questions_index'
 end
@@ -24,20 +24,35 @@ post '/questions' do
   end
 end
 
-get '/questions/:question_id' do
-  question = Question.find(params[:question_id])
+get '/questions/:id' do
+  @question = Question.find(params[:id])
+  @comment = Comment.new
+  @answer = Answer.new
 
   erb :'/questions/questions_show'
 end
 
-get '/questions/:question_id/edit' do
-  question = Question.find(params[:question_id])
+get '/questions/:id/edit' do
+  question = Question.find(params[:id])
 
   erb :'/questions/questions_edit'
 end
 
-post '/questions/id' do
+post '/questions/:id' do
+  question = Question.find(params[:id])
+  question.assign_attributes(params[:question])
 
+  if question.save
+    redirect '/questions'
+  else
+    erb :'questions/questions_edit'
+  end
 end
 
+post '/questions/:id' do
+  question = Question.find[params[:id]]
+  question.destroy
+
+  redirect '/questions'
+end
 
